@@ -3,7 +3,7 @@ export default () => {
   return (
     <Navbar className="fj-navbar fj-nav-base" bg="transparent" expand="lg">
       <Navbar.Brand className="fj-navbar-brand">
-        <a href="#">1234 boloogshdee</a>
+        <a href="#">Төрөөгийн хувийн блоог</a>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
