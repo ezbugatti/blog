@@ -4,6 +4,7 @@ import Intro from "components/intro";
 import ListItem from "components/list-item";
 import GridItem from "components/grid-item";
 import { getAllPosts } from "components/lib/api";
+import { v4 as uuidv4 } from "uuid";
 export default function Home({ posts }) {
   return (
     <Container>
@@ -16,7 +17,7 @@ export default function Home({ posts }) {
           </Col>
         </Row> */}
 
-        {/* <pre>{JSON.stringify(posts, null, 2)}</pre> */}
+        <pre>{JSON.stringify(posts, null, 2)}</pre>
 
         <hr />
 
@@ -26,7 +27,7 @@ export default function Home({ posts }) {
               <ListItem />
             </Col>
             {posts.map((post) => (
-              <Col md="4">
+              <Col key={uuidv4()} md="4">
                 <GridItem post={post} />
               </Col>
             ))}
