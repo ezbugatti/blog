@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import Layout from "components/layout";
 import { getPostBySlug, getAllPosts } from "components/lib/api";
 import { urlFor } from "components/lib/api";
+import PostHeader from "components/post-header";
 const BlockContent = require("@sanity/block-content-to-react");
 
 const serializers = {
@@ -13,7 +14,7 @@ const serializers = {
     ),
     image: (props) => (
       <div className={`blog-image blog-image-${props.node.position}`}>
-        <img src={urlFor(props.node).height(600).url()} />
+        <img src={urlFor(props.node).height(800).url()} />
 
         <div className="code-filename">{props.node.alt}</div>
       </div>
@@ -27,32 +28,7 @@ export default ({ post }) => {
       <Row>
         <Col md="12">
           {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
-          <div className="blog-detail-header">
-            <p className="lead mb-0">
-              <img
-                src={post.publisher.picture}
-                className="rounded-circle mr-3"
-                height="50px"
-                width="50px"
-              />
-              {post.publisher.title} {post.date}
-            </p>
-
-            <h1 className="font-weight-bold blog-detail-header-title mb-0">
-              {post.title}
-            </h1>
-
-            <h2 className="blog-detail-header-subtitle mb-3">
-              {post.subtitle}
-            </h2>
-
-            <img
-              className="img-fluid rounded"
-              src={urlFor(post.coverImage).height(600).url()}
-              alt={post.coverImage.alt}
-            />
-            <div className="code-filename">{post.coverImage.alt}</div>
-          </div>
+          <PostHeader post={post} />
           <br />
           <BlockContent
             blocks={post.content}

@@ -21,7 +21,7 @@ export const getAllPosts = async () => {
         'picture':picture.asset->url,
         title,
       }
-    }`
+    } | order(date desc)`
   );
   return posts;
 };
